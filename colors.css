@@ -1,0 +1,54 @@
+.buttons {
+    position: relative;
+    text-align: right;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 36px;
+    text-align: Center;
+}
+
+.msg {
+    font-weight: bold;
+    font-size: 80px;
+    text-align: center;
+}
+
+.main{
+    margin-right:80px;
+}
+
+.item {
+    display: inline-block;
+    height:230px;
+    width:220px;
+    border:solid 2px black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.red:hover{
+    background-color: red;
+    color: white;
+}
+
+.blue:hover{
+    background-color: blue;
+    color: white;
+}
+
+.green:hover {
+    background-color: green;
+    color: white;
+}
+
+.popUp {
+    position: absolute;
+    background-color: white;
+    right: 0;
+    padding: 15px;
+    border: 1px solid black;
+    text-align: left;
+}

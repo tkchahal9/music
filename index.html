@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tanjeet's Instrument Store </title>
+</head>
+<body>
+<div id="app">
+    <p class="title">Tanjeet's Instrument Store</p>
+    <div class="main">
+
+        <div class="buttons">
+            Your Cart: {{cartItemsCount}} <br>
+            <button v-on:click="resetNumber">Empty Cart</button>
+            <button v-on:click="showPopUp=!showPopUp">Add New Item</button>
+
+            <div class="popUp" v-if="showPopUp">
+
+                <h2>Add Instrument</h2>
+                <input type="text" v-model="instrumentName" placeholder="Instrument Name" />
+                <input type="number" step="0.01" v-model="priceInput" placeholder="Price" />
+                <br>
+
+                <h2>Type: </h2>
+                <input type="radio" id="one" value="Percussion" v-model="instrumentType" />
+                <label for="one">Percussion</label>
+                <input type="radio" id="two" value="String" v-model="instrumentType" />
+                <label for="two">String</label>
+                <input type="radio" id="three" value="Brass" v-model="instrumentType" />
+                <label for="three">Brass</label>
+                <input type="radio" id="four" value="Keyboard" v-model="instrumentType" />
+                <label for="four">Keyboard</label>
+
+                <br>
+                <h2>Brand: </h2>
+                <input type="radio" id="fender" value="Fender" v-model="brandInput">
+                <label for="fender">Fender</label>
+                <br>
+                <input type="radio" id="yamaha" value="Yamaha" v-model="brandInput">
+                <label for="yamaha">Yamaha</label>
+                <br>
+                <input type="radio" id="maton" value="Maton" v-model="brandInput">
+                <label for="maton">Maton</label>
+                <br>
+                <br><button v-on:click="newInstrument">Add Instrument</button>
+
+            </div>
+        </div>
+
+        <div class="item" v-for="(data, index) in instruments" v-bind:class="[data.color]">
+            <div>
+                <img height="110" width="200" v-bind:src=data.img></br>
+                {{data.name}}<br>Type: {{data.type}}<br>Price: ${{data.price}}<br>Brand: {{data.brand}}<br><br>
+
+                <button v-on:click="addToCart(index)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="msg" v-if="instruments.length === 0">
+            Store is Empty
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="music.js"></script>
+<link rel="stylesheet" type="text/css" href="colors.css">
+</body>
+</html>
+
